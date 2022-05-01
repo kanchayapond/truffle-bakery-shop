@@ -28,3 +28,7 @@ truffle test
 ```
 truffle migrate
 ```
+## Run web3 server
+```
+npm run dev
+```
