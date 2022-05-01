@@ -16,6 +16,8 @@ To verify that Truffle is installed properly, type `truffle version` on a termin
 
 We also will be using [Ganache](https://trufflesuite.com/ganache/), a personal blockchain for Ethereum development you can use to deploy contracts, develop applications, and run tests. You can download Ganache by navigating to https://trufflesuite.com/ganache and clicking the "Download" button.
 
+To connect to Ganach. You need to install [MetaMask](https://metamask.io/) Support in: Edge or Chrome and etc...
+
 ## Compile
 ```
 truffle compile
