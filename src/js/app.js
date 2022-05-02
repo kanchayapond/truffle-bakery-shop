@@ -1,6 +1,7 @@
 App = {
   web3Provider: null,
   contracts: {},
+  walletBalance: 0,
 
   init: async function() {
     // Load pets.
@@ -18,6 +19,12 @@ App = {
         petsRow.append(petTemplate.html());
       }
     });
+
+    let contractBalance = await this.auction.getBalance()
+    console.log(contractBalance)
+    
+    var total_balance = $('#total_balance')
+    total_balance.text();
 
     return await App.initWeb3();
   },
@@ -45,6 +52,24 @@ App = {
   web3 = new Web3(App.web3Provider);
 
   return App.initContract();
+  },
+
+  initBalance: function(){
+    
+    web3.eth.getAccounts(async function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+      var balance = await web3.eth.getBalance(account); //Will give value in.
+      App.walletBalance = balance;
+      var total_balance = $('#total_balance');
+      console.log(App.walletBalance);
+      total_balance.text(web3.utils.fromWei(balance, 'ether')+" ETH");
+      console.log(balance);
+      // console.log(web3.utils.fromWei(balance, 'ether'))
+    })
   },
 
   initContract: function() {
