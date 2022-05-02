@@ -20,12 +20,6 @@ App = {
       }
     });
 
-    let contractBalance = await this.auction.getBalance()
-    console.log(contractBalance)
-
-    var total_balance = $('#total_balance')
-    total_balance.text();
-
     return await App.initWeb3();
   },
 
@@ -99,7 +93,7 @@ App = {
       // console.log(web3.utils.fromWei(balance, 'ether'))
     })
   },
-  
+
   bindEvents: function() {
     $(document).on('click', '.btn-adopt', App.handleAdopt);
     $(document).on('click', '.btn-installment', App.handleInstallment);
