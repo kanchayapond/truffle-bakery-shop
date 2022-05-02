@@ -16,6 +16,18 @@ contract Adoption {
         return adopters;
     }
     
-    //function Instalment
+    // New Function ** Installment **
+    function Installment(uint petId) public return (uint) {
+        require(petId >= 0 && petId <= 15);
+
+        installment[petId] = msg.sender;
+
+        return petId;
+    }
+
+    // Retrieving the installment
+    function getInstallment() public view returns (address[16] memory) {
+        return installment;
+    }
 
 }
