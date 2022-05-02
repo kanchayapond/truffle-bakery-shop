@@ -147,11 +147,18 @@ App = {
   },
 
   handleInstallment: function(event) {
+    /*
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      var account = accounts[0];
+    });
+    */
     const ethereumButton = document.querySelector('.enableEthereumButton');
     const sendEthButton = document.querySelector('.sendEthButton');
 
     let accounts = [];
-
     //Sending Ethereum to an address
     sendEthButton.addEventListener('click', () => {
       ethereum
@@ -161,7 +168,7 @@ App = {
             {
               from: accounts[0],
               to: '0x18376A42d3a1e9b8BB5C26Fbe189b0b9175C6F90',
-              value: '0',
+              value: '0x29a2241af62c0000',
               gasPrice: '0x09184e72a000',
               gas: '0x2710',
             },
@@ -170,11 +177,11 @@ App = {
         .then((txHash) => console.log(txHash))
         .catch((error) => console.error);
     });
-
+    
     ethereumButton.addEventListener('click', () => {
       getAccount();
     });
-
+    
     async function getAccount() {
       accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     }
