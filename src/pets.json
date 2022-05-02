@@ -38,37 +38,37 @@
   {
     "id": 6,
     "name": "Pancake",
-    "picture": "images/Pancake.jpeg",
+    "picture": "images/Pancake.jpg",
     "price": "5$"
   },
   {
     "id": 7,
     "name": "Croffle",
-    "picture": "images/Croffle.jpeg",
+    "picture": "images/Croffle.jpg",
     "price": "5$"
   },
   {
     "id": 8,
     "name": "Waffle",
-    "picture": "images/waffle.jpeg",
+    "picture": "images/waffle.jpg",
     "price": "5$"
   },
   {
     "id": 9,
     "name": "Cupcake",
-    "picture": "images/cupcake.jpeg",
+    "picture": "images/cupcake.jpg",
     "price": "5$"
   },
   {
     "id": 10,
     "name": "Cookie",
-    "picture": "images/cookie.jpeg",
+    "picture": "images/cookie.jpg",
     "price": "5$"
   },
   {
     "id": 11,
     "name": "Madeleine",
-    "picture": "images/madeleine.jpeg",
+    "picture": "images/madeleine.jpg",
     "price": "5$"
   },
   {
