@@ -22,7 +22,7 @@ App = {
 
     let contractBalance = await this.auction.getBalance()
     console.log(contractBalance)
-    
+
     var total_balance = $('#total_balance')
     total_balance.text();
 
@@ -54,6 +54,34 @@ App = {
   return App.initContract();
   },
 
+  initContract: function() {
+    $.getJSON('Adoption.json', function(data) {
+      // Get the necessary contract artifact file and instantiate it with @truffle/contract
+      var AdoptionArtifact = data;
+      App.contracts.Adoption = TruffleContract(AdoptionArtifact);
+    
+      // Set the provider for our contract
+      App.contracts.Adoption.setProvider(App.web3Provider);
+    
+      App.initBalance();
+      // Use our contract to retrieve and mark the adopted pets
+      return App.markAdopted();
+    });
+    $.getJSON('Installment.json', function(data) {
+      // Get the necessary contract artifact file and instantiate it with @truffle/contract
+      var InstallmentArtifact = data;
+      App.contracts.Installment = TruffleContract(InstallmentArtifact);
+    
+      // Set the provider for our contract
+      App.contracts.Installment.setProvider(App.web3Provider);
+    
+      App.initBalance();
+      // Use our contract to retrieve and mark the adopted pets
+      return App.markAdopted();
+    });
+    return App.bindEvents();
+  },
+
   initBalance: function(){
     
     web3.eth.getAccounts(async function(error, accounts) {
@@ -71,33 +99,7 @@ App = {
       // console.log(web3.utils.fromWei(balance, 'ether'))
     })
   },
-
-  initContract: function() {
-    $.getJSON('Adoption.json', function(data) {
-      // Get the necessary contract artifact file and instantiate it with @truffle/contract
-      var AdoptionArtifact = data;
-      App.contracts.Adoption = TruffleContract(AdoptionArtifact);
-    
-      // Set the provider for our contract
-      App.contracts.Adoption.setProvider(App.web3Provider);
-    
-      // Use our contract to retrieve and mark the adopted pets
-      return App.markAdopted();
-    });
-    $.getJSON('Installment.json', function(data) {
-      // Get the necessary contract artifact file and instantiate it with @truffle/contract
-      var InstallmentArtifact = data;
-      App.contracts.Installment = TruffleContract(InstallmentArtifact);
-    
-      // Set the provider for our contract
-      App.contracts.Installment.setProvider(App.web3Provider);
-    
-      // Use our contract to retrieve and mark the adopted pets
-      return App.markAdopted();
-    });
-    return App.bindEvents();
-  },
-
+  
   bindEvents: function() {
     $(document).on('click', '.btn-adopt', App.handleAdopt);
     $(document).on('click', '.btn-installment', App.handleInstallment);

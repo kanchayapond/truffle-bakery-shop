@@ -7,21 +7,17 @@ contract Adoption {
     address public owner;
 
     // Defining a constructor
-	constructor() public{
+	constructor() public {
 		owner=msg.sender;
 	}
 
-    // Function to get
-	// address of owner
-	function getOwner(
-	) public view returns (address) {	
+    // Function to get address of owner
+	function getOwner() public view returns (address) {	
 		return owner;
 	}
 
-	// Function to return
-	// current balance of owner
-	function getBalance(
-	) public view returns(uint){
+	// Function to return current balance of owner
+	function getBalance() public view returns (uint) {
 		return address(this).balance;
 	}
 
