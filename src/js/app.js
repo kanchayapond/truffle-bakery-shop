@@ -61,6 +61,7 @@ App = {
       // Use our contract to retrieve and mark the adopted pets
       return App.markAdopted();
     });
+    /*
     $.getJSON('Installment.json', function(data) {
       // Get the necessary contract artifact file and instantiate it with @truffle/contract
       var InstallmentArtifact = data;
@@ -73,6 +74,7 @@ App = {
       // Use our contract to retrieve and mark the adopted pets
       return App.markAdopted();
     });
+    */
     return App.bindEvents();
   },
 
@@ -145,33 +147,37 @@ App = {
   },
 
   handleInstallment: function(event) {
-    event.preventDefault();
-    
-    var petId = parseInt($(event.target).data('id'));
+    const ethereumButton = document.querySelector('.enableEthereumButton');
+    const sendEthButton = document.querySelector('.sendEthButton');
 
-    var adoptionInstance;
+    let accounts = [];
 
-    web3.eth.getAccounts(function(error, accounts) {
-      if (error) {
-        console.log(error);
-      }
-
-    var account = accounts[0];
-
-    App.contracts.Adoption.deployed().then(function(instance) {
-      adoptionInstance = instance;
-
-    // Execute adopt as a transaction by sending account
-    return adoptionInstance.adopt(petId, {from: account});
-    }).then(function(result) {
-      return App.markAdopted();
-    }).catch(function(err) {
-      console.log(err.message);
+    //Sending Ethereum to an address
+    sendEthButton.addEventListener('click', () => {
+      ethereum
+        .request({
+          method: 'eth_sendTransaction',
+          params: [
+            {
+              from: accounts[0],
+              to: '0x18376A42d3a1e9b8BB5C26Fbe189b0b9175C6F90',
+              value: '0',
+              gasPrice: '0x09184e72a000',
+              gas: '0x2710',
+            },
+          ],
+        })
+        .then((txHash) => console.log(txHash))
+        .catch((error) => console.error);
     });
-  });
 
-  //window.alert("sometext");
+    ethereumButton.addEventListener('click', () => {
+      getAccount();
+    });
 
+    async function getAccount() {
+      accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    }
   }
 };
 
