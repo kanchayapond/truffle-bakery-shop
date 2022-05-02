@@ -1,130 +1,98 @@
 [
   {
     "id": 0,
-    "name": "Frieda",
-    "picture": "images/scottish-terrier.jpeg",
-    "age": 3,
-    "breed": "Scottish Terrier",
-    "location": "Lisco, Alabama"
+    "name": "Apple Pies",
+    "picture": "images/Apple_Pies.jpeg",
+    "price": "5$"
   },
   {
     "id": 1,
-    "name": "Gina",
-    "picture": "images/scottish-terrier.jpeg",
-    "age": 3,
-    "breed": "Scottish Terrier",
-    "location": "Tooleville, West Virginia"
+    "name": "Cinnamon Rolls",
+    "picture": "images/cinnamon_rolls.jpeg",
+    "price": "5$"
   },
   {
     "id": 2,
-    "name": "Collins",
-    "picture": "images/french-bulldog.jpeg",
-    "age": 2,
-    "breed": "French Bulldog",
-    "location": "Freeburn, Idaho"
+    "name": "Pain au Chocolat",
+    "picture": "images/Pain_au_Chocolat.jpeg",
+    "price": "5$"
   },
   {
     "id": 3,
-    "name": "Melissa",
-    "picture": "images/boxer.jpeg",
-    "age": 2,
-    "breed": "Boxer",
-    "location": "Camas, Pennsylvania"
+    "name": "Croissant",
+    "picture": "images/Croissant.jpeg",
+    "price": "5$"
   },
   {
     "id": 4,
-    "name": "Jeanine",
-    "picture": "images/french-bulldog.jpeg",
-    "age": 2,
-    "breed": "French Bulldog",
-    "location": "Gerber, South Dakota"
+    "name": "Blackberry Mousse Tart",
+    "picture": "images/Blackberry_Mousse_Tart.jpeg",
+    "price": "5$"
   },
   {
     "id": 5,
-    "name": "Elvia",
-    "picture": "images/french-bulldog.jpeg",
-    "age": 3,
-    "breed": "French Bulldog",
-    "location": "Innsbrook, Illinois"
+    "name": "Cheesecake",
+    "picture": "images/cheesecake.jpeg",
+    "price": "5$"
   },
   {
     "id": 6,
-    "name": "Latisha",
-    "picture": "images/golden-retriever.jpeg",
-    "age": 3,
-    "breed": "Golden Retriever",
-    "location": "Soudan, Louisiana"
+    "name": "Pancake",
+    "picture": "images/Pancake.jpeg",
+    "price": "5$"
   },
   {
     "id": 7,
-    "name": "Coleman",
-    "picture": "images/golden-retriever.jpeg",
-    "age": 3,
-    "breed": "Golden Retriever",
-    "location": "Jacksonwald, Palau"
+    "name": "Croffle",
+    "picture": "images/Croffle.jpeg",
+    "price": "5$"
   },
   {
     "id": 8,
-    "name": "Nichole",
-    "picture": "images/french-bulldog.jpeg",
-    "age": 2,
-    "breed": "French Bulldog",
-    "location": "Honolulu, Hawaii"
+    "name": "Waffle",
+    "picture": "images/waffle.jpeg",
+    "price": "5$"
   },
   {
     "id": 9,
-    "name": "Fran",
-    "picture": "images/boxer.jpeg",
-    "age": 3,
-    "breed": "Boxer",
-    "location": "Matheny, Utah"
+    "name": "Cupcake",
+    "picture": "images/cupcake.jpeg",
+    "price": "5$"
   },
   {
     "id": 10,
-    "name": "Leonor",
-    "picture": "images/boxer.jpeg",
-    "age": 2,
-    "breed": "Boxer",
-    "location": "Tyhee, Indiana"
+    "name": "Cookie",
+    "picture": "images/cookie.jpeg",
+    "price": "5$"
   },
   {
     "id": 11,
-    "name": "Dean",
-    "picture": "images/scottish-terrier.jpeg",
-    "age": 3,
-    "breed": "Scottish Terrier",
-    "location": "Windsor, Montana"
+    "name": "Madeleine",
+    "picture": "images/madeleine.jpeg",
+    "price": "5$"
   },
   {
     "id": 12,
-    "name": "Stevenson",
-    "picture": "images/french-bulldog.jpeg",
-    "age": 3,
-    "breed": "French Bulldog",
-    "location": "Kingstowne, Nevada"
+    "name": "Trifle",
+    "picture": "images/trifle.jpeg",
+    "price": "5$"
   },
   {
     "id": 13,
-    "name": "Kristina",
-    "picture": "images/golden-retriever.jpeg",
-    "age": 4,
-    "breed": "Golden Retriever",
-    "location": "Sultana, Massachusetts"
+    "name": "Lemon Tart",
+    "picture": "images/lemon_tart.jpeg",
+    "price": "5$"
   },
   {
     "id": 14,
-    "name": "Ethel",
-    "picture": "images/golden-retriever.jpeg",
-    "age": 2,
-    "breed": "Golden Retriever",
-    "location": "Broadlands, Oregon"
+    "name": "Strawberry Shortcake",
+    "picture": "images/Strawberry_Shortcake.jpeg",
+    "price": "5$"
   },
   {
     "id": 15,
-    "name": "Terry",
-    "picture": "images/golden-retriever.jpeg",
-    "age": 2,
-    "breed": "Golden Retriever",
-    "location": "Dawn, Wisconsin"
+    "name": "Strawberry Cream Tart",
+    "picture": "images/Strawberry_Cream_Tart.jpeg",
+    "price": "5$"
   }
 ]
