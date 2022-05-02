@@ -75,7 +75,7 @@ App = {
 
   bindEvents: function() {
     $(document).on('click', '.btn-adopt', App.handleAdopt);
-    $(document).on('click', '.btn-Installment', App.handleInstallment);
+    $(document).on('click', '.btn-installment', App.handleInstallment);
   },
 
   markAdopted: function() {
