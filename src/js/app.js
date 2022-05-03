@@ -61,20 +61,6 @@ App = {
       // Use our contract to retrieve and mark the adopted pets
       return App.markAdopted();
     });
-    /*
-    $.getJSON('Installment.json', function(data) {
-      // Get the necessary contract artifact file and instantiate it with @truffle/contract
-      var InstallmentArtifact = data;
-      App.contracts.Installment = TruffleContract(InstallmentArtifact);
-    
-      // Set the provider for our contract
-      App.contracts.Installment.setProvider(App.web3Provider);
-    
-      App.initBalance();
-      // Use our contract to retrieve and mark the adopted pets
-      return App.markAdopted();
-    });
-    */
     return App.bindEvents();
   },
 
@@ -110,11 +96,8 @@ App = {
       return adoptionInstance.getAdopters.call();
     }).then(function(adopters) {
       for (i = 0; i < adopters.length; i++) {
-        //if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-        //  $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
-        //}
         if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-          console.log(adopters[i])
+          $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
         }
       }
     }).catch(function(err) {
@@ -134,20 +117,20 @@ App = {
         console.log(error);
       }
 
-    var account = accounts[0];
+      var account = accounts[0];
 
-    App.contracts.Adoption.deployed().then(function(instance) {
-      adoptionInstance = instance;
+      App.contracts.Adoption.deployed().then(function(instance) {
+        adoptionInstance = instance;
 
-    // Execute adopt as a transaction by sending account
-    return adoptionInstance.adopt(petId, {from: account});
-    }).then(function(result) {
-      console.log('Adop success');
-      return App.markAdopted();
-    }).catch(function(err) {
-      console.log(err.message);
+        // Execute adopt as a transaction by sending account
+        return adoptionInstance.adopt(petId, {from: account});
+      }).then(function(result) {
+        App.initBalance();
+        return App.markAdopted();
+      }).catch(function(err) {
+        console.log(err.message);
+      });
     });
-  });
   },
 
   handleInstallment: function(event) {
