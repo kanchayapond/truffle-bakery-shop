@@ -110,8 +110,11 @@ App = {
       return adoptionInstance.getAdopters.call();
     }).then(function(adopters) {
       for (i = 0; i < adopters.length; i++) {
+        //if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
+        //  $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
+        //}
         if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-          $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
+          console.log(adopters[i])
         }
       }
     }).catch(function(err) {
@@ -139,6 +142,7 @@ App = {
     // Execute adopt as a transaction by sending account
     return adoptionInstance.adopt(petId, {from: account});
     }).then(function(result) {
+      console.log('Adop success');
       return App.markAdopted();
     }).catch(function(err) {
       console.log(err.message);
@@ -147,44 +151,33 @@ App = {
   },
 
   handleInstallment: function(event) {
-    /*
-    web3.eth.getAccounts(function(error, accounts) {
-      if (error) {
-        console.log(error);
-      }
-      var account = accounts[0];
-    });
-    */
-    const ethereumButton = document.querySelector('.enableEthereumButton');
-    const sendEthButton = document.querySelector('.sendEthButton');
+    const sendEthButton = document.querySelector('.btn-installment');
 
     let accounts = [];
+
+    async function getAccount() {
+      accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    }
     //Sending Ethereum to an address
     sendEthButton.addEventListener('click', () => {
+      getAccount();
+
       ethereum
         .request({
           method: 'eth_sendTransaction',
           params: [
             {
               from: accounts[0],
-              to: '0x18376A42d3a1e9b8BB5C26Fbe189b0b9175C6F90',
-              value: '0x29a2241af62c0000',
-              gasPrice: '0x09184e72a000',
-              gas: '0x2710',
+              to: '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
+              gasPrice: '0x4A817C800',
+              gas: '0xF90A',
             },
           ],
         })
         .then((txHash) => console.log(txHash))
         .catch((error) => console.error);
     });
-    
-    ethereumButton.addEventListener('click', () => {
-      getAccount();
-    });
-    
-    async function getAccount() {
-      accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-    }
+    return App.markAdopted();
   }
 };
 
@@ -193,3 +186,30 @@ $(function() {
     App.init();
   });
 });
+
+const sendEthButton = document.querySelector('.btn-installment');
+
+    let accounts = [];
+
+    async function getAccount() {
+      accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    }
+    //Sending Ethereum to an address
+    sendEthButton.addEventListener('click', () => {
+      getAccount();
+
+      ethereum
+        .request({
+          method: 'eth_sendTransaction',
+          params: [
+            {
+          from: accounts[0],
+          to: '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
+          gasPrice: '0x4A817C800',
+          gas: '0xF90A',
+            },
+          ],
+        })
+        .then((txHash) => console.log(txHash))
+        .catch((error) => console.error);
+    });

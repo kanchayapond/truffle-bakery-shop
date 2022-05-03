@@ -2,6 +2,10 @@ const sendEthButton = document.querySelector('.sendEthButton');
 
 let accounts = [];
 
+async function getAccount() {
+  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+}
+
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
   getAccount();
@@ -21,7 +25,3 @@ sendEthButton.addEventListener('click', () => {
     .then((txHash) => console.log(txHash))
     .catch((error) => console.error);
 });
-
-async function getAccount() {
-  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-}
